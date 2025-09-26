@@ -1,5 +1,6 @@
 ﻿
 //1. tuvasta sisu võrdlus tühja stringiga, string andmetüüp
+using System;
 using System.ComponentModel.Design;
 
 Console.WriteLine("Tere kasutaja, kuidas on sinu nimi?");
@@ -108,7 +109,7 @@ if (tehtetüüp == "/" /* tingimus siia*/)
 }
 Console.WriteLine($"Tehte tulemus: {tehe}");
 
-//4 parool, if ja string andmetüüp
+//4. parool, if ja string andmetüüp
 Console.WriteLine($"Palun vabandust {nimi}, aga programmi tööks on parooli vaja");
 string password = Console.ReadLine();
 if (password == "simsalabim")
@@ -124,7 +125,7 @@ else
     Console.WriteLine("Parool on vale");
 }
 
-//5 värvituvastus
+//5. värvituvastus
 Console.WriteLine("Mis on sinu lemmik värv");
 string favColour = Console.ReadLine();
 if (favColour == "punane")
@@ -180,3 +181,107 @@ else
     Console.WriteLine("ei tea seda värvi");
 }
     Console.WriteLine("The colour has maybe changed!!!!!");
+
+/* ISESEISEV ÜLESANNE */
+//# Kolija kalkulaator - Kirjuta programm mis:
+//# - Küsib kasutajalt kas ta tahab ära mõõta pappkasti või õlitünni.
+//# - olenevalt kasutaja sisestusest küsib ta:
+//# - - tünni jaoks:
+//# - - - kas kasutaja teab põhja raadiust (r) või põhja läbimõõtu (d):
+//# - - - tünni kõrgust
+//# - - - kaane paksust (kaane paksus võtab tünni kõrgusest maha, kuna kaan võtab tünni sisust natuke ruumi)
+//# - - - Arvutab tünni ruumala mahu, tünni küljepindala, tünni kogupindala
+//# - - kasti jaoks:
+//# - - - Kas kast on kuubiku kujuline või risttahuka kujuline
+//# - - - - kui on kuubik, siis küsib kasutajalt ainult küljepikkust
+//# - - - - kui on risttahukas siis küsib kasutajalt:
+//# - - - - - pikima külje pikkust,
+//# - - - - - lühima külje pikkust ja
+//# - - - - - kasti kõrgust
+//# - - arvutab vastavalt kasti kogupindala, mahu, ja pikima läbiva joone (d)
+
+//-
+//Console.WriteLine("Tere, kas sa tahad ära mõõta pappkasti või õlitünni");
+//string õlitünn = Console.ReadLine();
+//string pappkasti = Console.ReadLine();
+//if (string = "õlitünn")
+//{
+//    Console.WriteLine("kas sa tead põhj araadiust (r) või põhja läbimõõtu (d)");
+//}
+import math
+
+def tyyni_arvutused():
+    print("\nValisid õlitünni.")
+
+    teadaolev = input("Kas sa tead põhja raadiust (r) või läbimõõtu (d)? (sisesta 'r' või 'd'): ").lower()
+    if teadaolev == "r":
+        r = float(input("Sisesta põhja raadius (r): "))
+    elif teadaolev == "d":
+        d = float(input("Sisesta põhja läbimõõt (d): "))
+        r = d / 2
+    else:
+        print("Vigane sisestus.")
+        return
+
+    korgus = float(input("Sisesta tünni kõrgus: "))
+    kaane_paksus = float(input("Sisesta kaane paksus: "))
+
+    sisemine_korgus = korgus - kaane_paksus
+
+    # Mahu arvutus (V = πr²h)
+    maht = math.pi * r * *2 * sisemine_korgus
+
+    # Küljepindala (A_külg = 2πrh)
+    kylgpindala = 2 * math.pi * r * korgus
+
+    # Kogupindala (A_kogu = külgpindala + 2 * põhja pindala)
+    pohja_pindala = math.pi * r * *2
+    kogu_pindala = kylgpindala + 2 * pohja_pindala
+
+    print(f"\nTünni maht: {maht:.2f} ühikut³")
+    print(f"Tünni küljepindala: {kylgpindala:.2f} ühikut²")
+    print(f"Tünni kogupindala: {kogu_pindala:.2f} ühikut²")
+
+
+def kastiarvutused():
+    print("\nValisid pappkasti.")
+
+    kujund = input("Kas kast on kuubik või risttahukas? (sisesta 'kuubik' või 'risttahukas'): ").lower()
+
+
+    if kujund == "kuubik":
+        kylg = float(input("Sisesta kuubi küljepikkus: "))
+        maht = kylg * *3
+        pindala = 6 * kylg * *2
+        diagonaal = kylg * math.sqrt(3)
+
+    elif kujund == "risttahukas":
+        pikkus = float(input("Sisesta pikima külje pikkus: "))
+        laius = float(input("Sisesta lühima külje pikkus: "))
+        korgus = float(input("Sisesta kasti kõrgus: "))
+        maht = pikkus * laius * korgus
+        pindala = 2 * (pikkus * laius + pikkus * korgus + laius * korgus)
+        diagonaal = math.sqrt(pikkus * *2 + laius * *2 + korgus * *2)
+
+    else:
+        print("Vigane sisestus.")
+        return
+
+    print(f"\nKasti maht: {maht:.2f} ühikut³")
+    print(f"Kasti kogupindala: {pindala:.2f} ühikut²")
+    print(f"Kasti pikim läbiv diagonaal: {diagonaal:.2f} ühikut")
+
+
+def main():
+    print("Tere tulemast Kolija kalkulaatorisse!")
+    valik = input("Kas soovid mõõta pappkasti või õlitünni? (sisesta 'kast' või 'tünn'): ").lower()
+
+    if valik == "tünn":
+        tyyni_arvutused()
+    elif valik == "kast":
+        kastiarvutused()
+    else:
+        print("Vigane valik. Palun käivita programm uuesti ja vali 'kast' või 'tünn'.")
+
+if __name__ == "__main__":
+    main()
