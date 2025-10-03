@@ -201,87 +201,18 @@ else
 //# - - arvutab vastavalt kasti kogupindala, mahu, ja pikima läbiva joone (d)
 
 //-
-//Console.WriteLine("Tere, kas sa tahad ära mõõta pappkasti või õlitünni");
-//string õlitünn = Console.ReadLine();
-//string pappkasti = Console.ReadLine();
-//if (string = "õlitünn")
-//{
-//    Console.WriteLine("kas sa tead põhj araadiust (r) või põhja läbimõõtu (d)");
-//}
-import math
+Console.WriteLine("õlitünn või pappkast");
+string valik = Console.ReadLine();
+if (valik == "õlitünn")
+{
+    Console.WriteLine("kas sa tead põhja raadiust (r) või põhja läbimõõtu (d)");
+    string rvõid = Console.ReadLine();
+    Console.WriteLine("mis on tünni kõrgus?");
+    string kõrgus = Console.ReadLine();
+    Console.WriteLine("mis on kaane paksus");
 
-def tyyni_arvutused():
-    print("\nValisid õlitünni.")
-
-    teadaolev = input("Kas sa tead põhja raadiust (r) või läbimõõtu (d)? (sisesta 'r' või 'd'): ").lower()
-    if teadaolev == "r":
-        r = float(input("Sisesta põhja raadius (r): "))
-    elif teadaolev == "d":
-        d = float(input("Sisesta põhja läbimõõt (d): "))
-        r = d / 2
-    else:
-        print("Vigane sisestus.")
-        return
-
-    korgus = float(input("Sisesta tünni kõrgus: "))
-    kaane_paksus = float(input("Sisesta kaane paksus: "))
-
-    sisemine_korgus = korgus - kaane_paksus
-
-    # Mahu arvutus (V = πr²h)
-    maht = math.pi * r * *2 * sisemine_korgus
-
-    # Küljepindala (A_külg = 2πrh)
-    kylgpindala = 2 * math.pi * r * korgus
-
-    # Kogupindala (A_kogu = külgpindala + 2 * põhja pindala)
-    pohja_pindala = math.pi * r * *2
-    kogu_pindala = kylgpindala + 2 * pohja_pindala
-
-    print(f"\nTünni maht: {maht:.2f} ühikut³")
-    print(f"Tünni küljepindala: {kylgpindala:.2f} ühikut²")
-    print(f"Tünni kogupindala: {kogu_pindala:.2f} ühikut²")
-
-
-def kastiarvutused():
-    print("\nValisid pappkasti.")
-
-    kujund = input("Kas kast on kuubik või risttahukas? (sisesta 'kuubik' või 'risttahukas'): ").lower()
-
-
-    if kujund == "kuubik":
-        kylg = float(input("Sisesta kuubi küljepikkus: "))
-        maht = kylg * *3
-        pindala = 6 * kylg * *2
-        diagonaal = kylg * math.sqrt(3)
-
-    elif kujund == "risttahukas":
-        pikkus = float(input("Sisesta pikima külje pikkus: "))
-        laius = float(input("Sisesta lühima külje pikkus: "))
-        korgus = float(input("Sisesta kasti kõrgus: "))
-        maht = pikkus * laius * korgus
-        pindala = 2 * (pikkus * laius + pikkus * korgus + laius * korgus)
-        diagonaal = math.sqrt(pikkus * *2 + laius * *2 + korgus * *2)
-
-    else:
-        print("Vigane sisestus.")
-        return
-
-    print(f"\nKasti maht: {maht:.2f} ühikut³")
-    print(f"Kasti kogupindala: {pindala:.2f} ühikut²")
-    print(f"Kasti pikim läbiv diagonaal: {diagonaal:.2f} ühikut")
-
-
-def main():
-    print("Tere tulemast Kolija kalkulaatorisse!")
-    valik = input("Kas soovid mõõta pappkasti või õlitünni? (sisesta 'kast' või 'tünn'): ").lower()
-
-    if valik == "tünn":
-        tyyni_arvutused()
-    elif valik == "kast":
-        kastiarvutused()
-    else:
-        print("Vigane valik. Palun käivita programm uuesti ja vali 'kast' või 'tünn'.")
-
-if __name__ == "__main__":
-    main()
+}
+else if (valik == "pappkast")
+{
+    Console.WriteLine("kas sa tead põhja raadiust (r) või põhja läbimõõtu (d)");
+}
