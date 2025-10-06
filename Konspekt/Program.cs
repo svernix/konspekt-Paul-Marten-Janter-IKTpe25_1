@@ -200,7 +200,7 @@ else
 //# - - - - - kasti kõrgust
 //# - - arvutab vastavalt kasti kogupindala, mahu, ja pikima läbiva joone (d)
 
-<<<<<<< HEAD
+// HEAD
 
 Console.WriteLine("Tere, kas sa tahad ära mõõta kasti või tünni");
 string valik = Console.ReadLine();
@@ -323,12 +323,12 @@ string sisend_string = "abc";
 
 //Ülesanne, kasutada süntaksiseletust, kirjelda komnetariga iga koodirida
 
-int arv1 = 0;
+int arv3 = 0;
 //See on esimene arv, muutuja nime ees olev andmetüüp, see näitab ära mis tüüpi andmed selle muutuja sees on
 // = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse
 // 0 -> väärtus mis sellele muutujale omistatakse
 
-int arv2 = 0;
+int arv4 = 0;
 //See on teine arv, muutuja nime ees olev andmetüüp, see näitab ära mis tüüpi andmed selle muutuja sees on
 // = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse
 // 0 -> väärtus mis sellele muutujale omistatakse
@@ -362,13 +362,13 @@ Console.WriteLine("Missugust tehet soovid teha? Kirjuta kas: + - / *");
 //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
 //taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
 
-string tehtetüüp = Console.ReadLine();
+string tehtetyyp = Console.ReadLine();
 // Tekitame muutuja "tehtetüüp", mille ette paneme andmetüübiks string, ehk
 // ütleme et seal on tekst, ning võrdusmärgi abil omistame talle
 // konsooli rea pealt loetu info, mis saame kasutades "Console" mooduli,
 // ReadLine() funktsiooni. Lause lõppeb lauselõpumärgiga ; .
 
-int tehe = 0;
+int tulemus = 0;
 //instasieerime muutuja tulemus, mille andmetüübiks on int, ja omistame
 //talle esi algu väärtuse 0. Lause lõpp lõpeb lauselõpumärgiga.
 
@@ -378,7 +378,7 @@ if (tehtetüüp == "+" /* tingimus siia*/)
 // teeme tingimuslause if, ning sulgude vahele kirjutame tingumuseks
 //kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "+"
 {
-    tehe = arv1 + arv2;
+    tulemus = arv1 + arv2;
     //liitmine, kaks arvu kokku
 }
 //peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
@@ -393,7 +393,7 @@ if (tehtetüüp == "-" /* tingimus siia*/)
 //kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "-"
 {
     
-    tehe = arv1 - arv2;
+    tulemus = arv1 - arv2;
     // lahutad, esimese arvu teisest arvust maha
 }
 //peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
@@ -409,7 +409,7 @@ if (tehtetüüp == "*" /* tingimus siia*/)
    
 {
         
-    tehe = arv1 * arv2;
+    tulemus = arv1 * arv2;
     //korrutamine, korrutad essa arvu teisega
 }
 //peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
@@ -425,7 +425,7 @@ if (tehtetüüp == "/" /* tingimus siia*/)
 //kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "/"
         
             
-    tehe = arv1 / arv2;
+    tulemus = arv1 / arv2;
     // jagamine, jagad essa arvu teisega
 }
 //peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
@@ -437,7 +437,7 @@ if (tehtetüüp == "^")
 //teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
 //kontrolli, kas muutuja "tehtetüüp" sisu on sama kui sõne "^"
 {
-    tehe = (int)Math.Pow(arv1, arv2);
+    tulemus = (int)Math.Pow(arv1, arv2);
 }
 //peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
 //sisaldab endas ühte rida, kus muutujasse tulemus omistatakse nüüd
@@ -447,26 +447,31 @@ if (tehtetüüp == "^")
 //Funktsiooni ees on kiirtesisendus kus funktsiooni väljund tesiendatakse
 //(int) abil. Lause lõppeb lauselõpumärrgiga.
 
-Console.WriteLine($"Tehte tulemus: {tehe}");
+Console.WriteLine($"Tehte tulemus: {tulemus}");
 //Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
 //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
 //taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
 // {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
-=======
-//-
-Console.WriteLine("õlitünn või pappkast");
-string valik = Console.ReadLine();
-if (valik == "õlitünn")
-{
-    Console.WriteLine("kas sa tead põhja raadiust (r) või põhja läbimõõtu (d)");
-    string rvõid = Console.ReadLine();
-    Console.WriteLine("mis on tünni kõrgus?");
-    string kõrgus = Console.ReadLine();
-    Console.WriteLine("mis on kaane paksus");
 
-}
-else if (valik == "pappkast")
+Console.WriteLine("Sisesta ostusumma");
+double ostusumma = double.Parse(Console.ReadLine());
+if (ostusumma > 100)
 {
-    Console.WriteLine("kas sa tead põhja raadiust (r) või põhja läbimõõtu (d)");
+    Console.WriteLine("Saad 20% allahindliust!");
 }
->>>>>>> 687932dfbfc3d6adc5d57de4336c54a047622caa
+else if (ostusumma < 101 && ostusumma > 50)
+{
+    Console.WriteLine("Saad 10% allahindlust");
+}
+else if (ostusumma < 51 && ostusumma > 20)
+{
+    Console.WriteLine("Saad 5% allahindlust");
+}
+else if (ostusumma > 21)
+{
+    Console.WriteLine("Allahindlust ei saa");
+}
+else if (ostusumma < 1)
+{
+    Console.WriteLine("Sisestatud vigane arv");
+}
