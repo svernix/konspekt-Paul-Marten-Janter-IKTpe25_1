@@ -200,6 +200,7 @@ else
 //# - - - - - kasti kõrgust
 //# - - arvutab vastavalt kasti kogupindala, mahu, ja pikima läbiva joone (d)
 
+<<<<<<< HEAD
 
 Console.WriteLine("Tere, kas sa tahad ära mõõta kasti või tünni");
 string valik = Console.ReadLine();
@@ -451,3 +452,21 @@ Console.WriteLine($"Tehte tulemus: {tehe}");
 //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
 //taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
 // {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
+=======
+//-
+Console.WriteLine("õlitünn või pappkast");
+string valik = Console.ReadLine();
+if (valik == "õlitünn")
+{
+    Console.WriteLine("kas sa tead põhja raadiust (r) või põhja läbimõõtu (d)");
+    string rvõid = Console.ReadLine();
+    Console.WriteLine("mis on tünni kõrgus?");
+    string kõrgus = Console.ReadLine();
+    Console.WriteLine("mis on kaane paksus");
+
+}
+else if (valik == "pappkast")
+{
+    Console.WriteLine("kas sa tead põhja raadiust (r) või põhja läbimõõtu (d)");
+}
+>>>>>>> 687932dfbfc3d6adc5d57de4336c54a047622caa
