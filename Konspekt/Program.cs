@@ -200,88 +200,254 @@ else
 //# - - - - - kasti kõrgust
 //# - - arvutab vastavalt kasti kogupindala, mahu, ja pikima läbiva joone (d)
 
-//-
-//Console.WriteLine("Tere, kas sa tahad ära mõõta pappkasti või õlitünni");
-//string õlitünn = Console.ReadLine();
-//string pappkasti = Console.ReadLine();
-//if (string = "õlitünn")
-//{
-//    Console.WriteLine("kas sa tead põhj araadiust (r) või põhja läbimõõtu (d)");
-//}
-import math
 
-def tyyni_arvutused():
-    print("\nValisid õlitünni.")
-
-    teadaolev = input("Kas sa tead põhja raadiust (r) või läbimõõtu (d)? (sisesta 'r' või 'd'): ").lower()
-    if teadaolev == "r":
-        r = float(input("Sisesta põhja raadius (r): "))
-    elif teadaolev == "d":
-        d = float(input("Sisesta põhja läbimõõt (d): "))
-        r = d / 2
-    else:
-        print("Vigane sisestus.")
-        return
-
-    korgus = float(input("Sisesta tünni kõrgus: "))
-    kaane_paksus = float(input("Sisesta kaane paksus: "))
-
-    sisemine_korgus = korgus - kaane_paksus
-
-    # Mahu arvutus (V = πr²h)
-    maht = math.pi * r * *2 * sisemine_korgus
-
-    # Küljepindala (A_külg = 2πrh)
-    kylgpindala = 2 * math.pi * r * korgus
-
-    # Kogupindala (A_kogu = külgpindala + 2 * põhja pindala)
-    pohja_pindala = math.pi * r * *2
-    kogu_pindala = kylgpindala + 2 * pohja_pindala
-
-    print(f"\nTünni maht: {maht:.2f} ühikut³")
-    print(f"Tünni küljepindala: {kylgpindala:.2f} ühikut²")
-    print(f"Tünni kogupindala: {kogu_pindala:.2f} ühikut²")
+Console.WriteLine("Tere, kas sa tahad ära mõõta kasti või tünni");
+string valik = Console.ReadLine();
+if (valik == "tünn")
+{
+    Console.WriteLine("kas sa tead põhj araadiust (r) või põhja läbimõõtu (d)");
+    string rvõid = Console.ReadLine();
+    Console.WriteLine("Sisesta see mõõt");
+    double mõõt = double.Parse(Console.ReadLine());
+    if (rvõid == "d")
+    {
+        mõõt = mõõt / 2;
+    }
+    else if (rvõid != "r")
+    {
+        Console.WriteLine("Sisend ei ole tuntav");
+    }
+    Console.WriteLine("Kui kõrge on su tünn");
+    int kõrgus = int.Parse(Console.ReadLine());
+    Console.WriteLine("Kui paks on tünni kaas?");
+    int kaanepaksus = int.Parse(Console.ReadLine());
+    double tünnipõhiS = Math.PI * (mõõt * mõõt);
+    double mahtV = tünnipõhiS * (kõrgus - kaanepaksus);
+    double küljepindala = tünnipõhiS * kõrgus;
+    double kogupindala = (tünnipõhiS * 2) + küljepindala;
+    Console.WriteLine($"Sinu tünn mahutab {mahtV} \nTünni küljepindala on {küljepindala} \nkogupindala aga on {kogupindala}");
 
 
-def kastiarvutused():
-    print("\nValisid pappkasti.")
+}
+else if (valik == "kast")
+{
+    Console.WriteLine("Kas su kast on kuubik(k) või risttahukas(r)");
+    string kastitüüp = Console.ReadLine();
+    if (kastitüüp == "k")
+    {
+        Console.WriteLine("Sisesta kasti külgpikkus");
+        double külgA = double.Parse(Console.ReadLine());
+        double kuubik = Math.Pow(külgA, 3);
+        double küljepindala = (külgA * külgA) * 6;
+        double diagonaal = külgA * Math.Sqrt(3);
+        Console.WriteLine($"Sinu kuubik mahutab {kuubik} \nkuubiku küljepindala on {küljepindala} \ndiagonaal aga on {diagonaal}");
 
-    kujund = input("Kas kast on kuubik või risttahukas? (sisesta 'kuubik' või 'risttahukas'): ").lower()
+    }
+    else if (kastitüüp == "r")
+    {
+        Console.WriteLine("Mis on sinu kasti kõige pikkim külg");
+        double pikkülg = double.Parse(Console.ReadLine());
+        Console.WriteLine("Mis on sinu kasti kõige lühikekülg");
+        double lühikekülg = double.Parse(Console.ReadLine());
+        Console.WriteLine("Mis on sinu kasti kõrgus");
+        double kõrgus = double.Parse(Console.ReadLine());
+        double V = pikkülg * lühikekülg * kõrgus;
+        double kogupindala = 2 * ((pikkülg * lühikekülg) + (lühikekülg * kõrgus) + (pikkülg * kõrgus));
+        double diagonaal = Math.Sqrt((pikkülg * pikkülg) + (lühikekülg * lühikekülg) + (kõrgus * kõrgus));
+        Console.WriteLine($"Sinu kast mahutab {V} \nkasti küljepindala on {kogupindala} \ndiagonaal aga on {diagonaal}");
+
+    }
+}
+
+Console.WriteLine("banana");
+// Console -> adreseeritav moodul või objekti (Roheline)
+// . -> midagi selle objekti seest, saamine windowsi kasuta pathis oleva slashiga
+// - komakohtadega andmetüüpidel komakoha tähistamine
+// WriteLine adreseeritav funktsioon objektist Console
+// () -> sulupaar mis omab endas funktsioonile vajalikku infot
+//   - saab kasutada ka if tingimuslauses oleva tingimuse piiramiseks, ehk teisisõn "ifi parameeter"
+//   - kasutatakse ka matemaatilistes tehedes
+// [] -> tähistava massiive
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
+// - saab ka kasutada teksti sees muutujate kuvamiseks
+// -> taane aitab aredajal aru saada millise koodiploki sees, miski on. Vajalik kompilaatorile.
+// "banana" -> parameeter mis antakse funkstioonlie WriteLine töötlemiseks kaasa.
+// ; -> iga koodilause lõppeb komakooloniga
+
+int muutuja = 3;
+// int -> muutuja nime ees olev andmetüübi kirjeldus, see näitab ära mis tüüpi andmed selle muutuja sees on
+// = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse
+// 3 -> väärtus mis sellele muutujale omistatakse
+
+//võimalikud andmetüübid
+int a = 1; //täisarv
+decimal b = 2.0M; //kümnendsüsteemis olev komakohaga arv
+float c = 3.0f; //kümnendsüsteemis olev ujukomaga arv
+double d = 4.0d; //kümnendsüsteemis olev komakohaga arv, sarnane decimaliga
+char c1 = 'a'; //üksainus täht või tähemärk
+string s = "tekst"; // iniloetaval kujul tekst
+var x = "abc"; //ebamäärase tüübiga kohalik muutuja
+var y = 123;
+const int z = 3; //konstant-tüüpi muutujaid ei saa muuta, need on read-only
+
+//põhilised matemaatilised tehted
+int liitimine = 1 + 1; //liitmine, kaks arvu kokku
+int lahutamine = 1 - 1; // lahutad, esimese arvu teisest arvust maha
+int korrutamine = 1 * 1; //korrutamine, korrutad essa arvu teisega
+int jagamine = 1 / 1; // jagamine, jagad essa arvu teisega
+double astendamine = Math.Pow(2, 2); // astendamine, esimene arv astendakse teisega
+double juurimine = Math.Sqrt(2); //ruutjuur, parameetriks arv mida juuritakse
+
+int arv = 0; //sobib
+string sõna = "abc";
+string sisend_string = "abc";
+// string string = "abc" ei sobi järgnevad sõnad;
+
+//muutuja nimeks ei sobi järgnevad sõnad;
+//abstract, as, base, bool, break, byte, case,
+//catch, char, checked, class, const, continue, decimal,
+//default, delgate, do, double, else, enum, event,
+//explict, extern, false, finnaly, fixed, float, for
+//foreach, goto, if, implicit, in, int,
+// interface, internal, is, lock, long, namespace, new,
+//null, object, operator, out, override, params,
+//private, protected, public, readonly, ref , return, sybte,
+//sealed, short, sizeof, stacklloc, staticm string, structm
+//switch, this, throwm true, try, typoof, uint,
+//ulong, uncheckd, unsafem ushort, using , virtual, void
+//volatile, while.
 
 
-    if kujund == "kuubik":
-        kylg = float(input("Sisesta kuubi küljepikkus: "))
-        maht = kylg * *3
-        pindala = 6 * kylg * *2
-        diagonaal = kylg * math.sqrt(3)
-
-    elif kujund == "risttahukas":
-        pikkus = float(input("Sisesta pikima külje pikkus: "))
-        laius = float(input("Sisesta lühima külje pikkus: "))
-        korgus = float(input("Sisesta kasti kõrgus: "))
-        maht = pikkus * laius * korgus
-        pindala = 2 * (pikkus * laius + pikkus * korgus + laius * korgus)
-        diagonaal = math.sqrt(pikkus * *2 + laius * *2 + korgus * *2)
-
-    else:
-        print("Vigane sisestus.")
-        return
-
-    print(f"\nKasti maht: {maht:.2f} ühikut³")
-    print(f"Kasti kogupindala: {pindala:.2f} ühikut²")
-    print(f"Kasti pikim läbiv diagonaal: {diagonaal:.2f} ühikut")
 
 
-def main():
-    print("Tere tulemast Kolija kalkulaatorisse!")
-    valik = input("Kas soovid mõõta pappkasti või õlitünni? (sisesta 'kast' või 'tünn'): ").lower()
+//Ülesanne, kasutada süntaksiseletust, kirjelda komnetariga iga koodirida
 
-    if valik == "tünn":
-        tyyni_arvutused()
-    elif valik == "kast":
-        kastiarvutused()
-    else:
-        print("Vigane valik. Palun käivita programm uuesti ja vali 'kast' või 'tünn'.")
+int arv1 = 0;
+//See on esimene arv, muutuja nime ees olev andmetüüp, see näitab ära mis tüüpi andmed selle muutuja sees on
+// = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse
+// 0 -> väärtus mis sellele muutujale omistatakse
 
-if __name__ == "__main__":
-    main()
+int arv2 = 0;
+//See on teine arv, muutuja nime ees olev andmetüüp, see näitab ära mis tüüpi andmed selle muutuja sees on
+// = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse
+// 0 -> väärtus mis sellele muutujale omistatakse
+
+Console.WriteLine("Tere, palun sisesta esimene arv: ");
+//Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+//funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+//taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
+
+arv1 = int.Parse(Console.ReadLine());
+// int -> muutuja nime ees olev andmetüübi kirjeldus,
+//see näitab ära mis tüüpi andmed selle muutuja sees on.
+// = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse.
+// 1 -> väärtus mis sellele muutujale omistatakse.
+//Lause lõppeb lauselõpumärgiga.
+
+Console.WriteLine("Tere, palun sisesta teine arv: ");
+//Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+//funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+//taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
+
+arv2 = int.Parse(Console.ReadLine());
+// int -> muutuja nime ees olev andmetüübi kirjeldus,
+//see näitab ära mis tüüpi andmed selle muutuja sees on
+// = -> võrdlusmärk omistab sellele muutujale mingisuguse väärtuse
+// 1 -> väärtus mis sellele muutujale omistatakse
+//Lause lõppeb lauselõpumärgiga.
+
+Console.WriteLine("Missugust tehet soovid teha? Kirjuta kas: + - / *");
+//Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+//funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+//taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
+
+string tehtetüüp = Console.ReadLine();
+// Tekitame muutuja "tehtetüüp", mille ette paneme andmetüübiks string, ehk
+// ütleme et seal on tekst, ning võrdusmärgi abil omistame talle
+// konsooli rea pealt loetu info, mis saame kasutades "Console" mooduli,
+// ReadLine() funktsiooni. Lause lõppeb lauselõpumärgiga ; .
+
+int tehe = 0;
+//instasieerime muutuja tulemus, mille andmetüübiks on int, ja omistame
+//talle esi algu väärtuse 0. Lause lõpp lõpeb lauselõpumärgiga.
+
+if (tehtetüüp == "+" /* tingimus siia*/)
+//if->kood mis käivitub siis kui on tingimus õige.
+//==-> kontrolib kas pool A on sama  mis pool B.
+// teeme tingimuslause if, ning sulgude vahele kirjutame tingumuseks
+//kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "+"
+{
+    tehe = arv1 + arv2;
+    //liitmine, kaks arvu kokku
+}
+//peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
+//sisaldab endas ühte rida, kus muutujasse tulemus omistatakse nüüd
+//väärtuse liites kokku muutuja arv1 ja muutuja arv2. Lause lõppeb
+//lauselõpumärrgiga sulgude sees. ei
+
+if (tehtetüüp == "-" /* tingimus siia*/)
+//if->kood mis käivitub siis kui on tingimus õige.
+//==-> kontrolib kas pool A on sama  mis pool B.
+// teeme tingimuslause if, ning sulgude vahele kirjutame tingumuseks
+//kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "-"
+{
+    
+    tehe = arv1 - arv2;
+    // lahutad, esimese arvu teisest arvust maha
+}
+//peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
+//sisaldab endas ühte rida, kus muutujasse tulemus omistatakse nüüd
+//väärtuse liites kokku muutuja arv1 ja muutuja arv2. Lause lõppeb
+//lauselõpumärrgiga sulgude sees. ei
+
+if (tehtetüüp == "*" /* tingimus siia*/)
+//if->kood mis käivitub siis kui on tingimus õige.
+//==-> kontrolib kas pool A on sama  mis pool B.
+// teeme tingimuslause if, ning sulgude vahele kirjutame tingumuseks
+//kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "*"
+   
+{
+        
+    tehe = arv1 * arv2;
+    //korrutamine, korrutad essa arvu teisega
+}
+//peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
+//sisaldab endas ühte rida, kus muutujasse tulemus omistatakse nüüd
+//väärtuse liites kokku muutuja arv1 ja muutuja arv2. Lause lõppeb
+//lauselõpumärrgiga sulgude sees. ei
+
+if (tehtetüüp == "/" /* tingimus siia*/)
+{
+//if->kood mis käivitub siis kui on tingimus õige.
+//==-> kontrolib kas pool A on sama  mis pool B.
+// teeme tingimuslause if, ning sulgude vahele kirjutame tingumuseks
+//kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõne "/"
+        
+            
+    tehe = arv1 / arv2;
+    // jagamine, jagad essa arvu teisega
+}
+//peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
+//sisaldab endas ühte rida, kus muutujasse tulemus omistatakse nüüd
+//väärtuse liites kokku muutuja arv1 ja muutuja arv2. Lause lõppeb
+//lauselõpumärrgiga sulgude sees. ei
+
+if (tehtetüüp == "^")
+//teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
+//kontrolli, kas muutuja "tehtetüüp" sisu on sama kui sõne "^"
+{
+    tehe = (int)Math.Pow(arv1, arv2);
+}
+//peale tingimusi on koodiplokk{} loogeliste sulgude vahel. koodiplokk
+//sisaldab endas ühte rida, kus muutujasse tulemus omistatakse nüüd
+//väärtuse kasutades moodulist "Math" punkti abil funktsiooni "Pow()",
+//selle sees on arv1 astendatavana esimene parameeter, ning arv2
+//astendajana teine parameeter.
+//Funktsiooni ees on kiirtesisendus kus funktsiooni väljund tesiendatakse
+//(int) abil. Lause lõppeb lauselõpumärrgiga.
+
+Console.WriteLine($"Tehte tulemus: {tehe}");
+//Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+//funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+//taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
