@@ -2,6 +2,7 @@
 //1. tuvasta sisu võrdlus tühja stringiga, string andmetüüp
 using System;
 using System.ComponentModel.Design;
+using System.Reflection;
 
 Console.WriteLine("Tere kasutaja, kuidas on sinu nimi?");
 string nimi = Console.ReadLine();
@@ -454,6 +455,10 @@ Console.WriteLine($"Tehte tulemus: {tulemus}");
 // {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 
 Console.WriteLine("Sisesta ostusumma");
+// Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+//funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+//taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
+
 double ostusumma = double.Parse(Console.ReadLine());
 if (ostusumma > 100)
 {
