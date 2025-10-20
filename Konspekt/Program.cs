@@ -2,6 +2,7 @@
 //1. tuvasta sisu võrdlus tühja stringiga, string andmetüüp
 using System;
 using System.ComponentModel.Design;
+using System.Diagnostics.Contracts;
 using System.Reflection;
 
 Console.WriteLine("Tere kasutaja, kuidas on sinu nimi?");
@@ -524,6 +525,36 @@ else if (true) { } //kaitstud sõnad else ja if (else if) kutsuvad esile
 else { } //kaitsutud sõna else  kutsub esile järeltingimuse, millele peab eelnema
          //kas if või else if, ning mille koodiploki sisu täidetakse kõikide if
          //ja else if sees olevate tingimuste läbikukumistel
+int option = 3; // -------
+switch (option) //"switchi" on kaitsutud sõna alternatiivse
+                //tingimuskontrolli jaoks mida saab if else-if
+                // asemel kasutada. Sulgude vahele käib muutuja nimi,
+                //mille põhjal tingimuslik ümberlülitus toimub. Siin
+                //sulgude vahel ei ole tingimus ise, vaid kõigest
+                //kontrollitav muutuja, või omakorda sulgude
+                //vahel muu tingimus. Pärast lülitusvalikut tuleb
+                //koodiplokk. 
+                
+    case 1:  //koodiploki on erinevaid juhtumid. Juhtumit
+             //kontrollitakse kaitsud süna "case" abil. Antud juhul
+             //kontrollitakse, kas muutujas on väärtus 1, millele
+             //järgneb kolon ";"
+             //peale koolonit kirjeldatakse tehtav tegevus
+        break; //ja kui tegevus on täidetud, väljutakse kogu switchist
+               //tegevusest kaitstud sõna "break"-iga. Peale "break"-i
+               //on lauselõppumärk ";"
+    case 2:
+        break;
+    case 3:
+        break;
+              //juthtumeid võib olla mitmeid antud juhul on neid kolm
+              //kindlalt, ja üks mida tehakse igal muul juhul.
+    default: //kaitstud sõna "default" avab juhtumi kui muutujas
+             //ei ole mitte ühtegi muud "case" juhtumi tingimust.
+             // ka default lõppeb sõnaga
+        break;
+}
+
 /* loogilised tehted*/
 // &&  -> loogiline tehe, mida kasutatakse tingimuste kirjutamisel, ning mis annab
 //positiivse vastuse (true) juhul kui mõlemal pool && märki olevad tingimused on
@@ -587,3 +618,20 @@ do // "do" on kaitsutud sõna, mis alustab do-while tsüklit pärast mida on
 
 } while (true); //niikaua kuni while järel olevate silgude vahel olev tingimus
                 //on täidetud
+                // 2. While
+
+int i = 1; //tsüklimuutuja mis kontrollib "while" tsükli tööd
+while (i < 5) //"While" on kaitstud sõna mis alustab while tsükli
+              //varianti, ilma "do"-ta, ning vajab tihtipeale
+              //välist tsüklimuutujat antud juhul on selleks i.
+              //Tsükli tingimus, mis peaöe "while" sõna on, sulgude
+              //vahel, kontrollib tingimuse abil, selle muutuja
+              //olekut. Siin kontrollitakse, et tsükkel ei oleks suurem
+              // kui 5, kui ta on, siis tsükli töö lõpeb
+           
+{
+    //koodiplokk kus midagi tehakse
+    i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud
+        //juhul liidetaks 1 juurde
+
+}
