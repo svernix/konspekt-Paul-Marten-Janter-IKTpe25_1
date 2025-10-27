@@ -293,6 +293,26 @@ var x = "abc"; //ebamäärase tüübiga kohalik muutuja
 var y = 123;
 const int z = 3; //konstant-tüüpi muutujaid ei saa muuta, need on read-only
 
+//võimalikud komposiitandmetüübid
+// [] -> Massiv on komosiitandmetüüp, mille sees saab olla mitu samat
+//tüüpi lihtandmeid. Massiv tähistatakse kantsulgudega
+//Massive saab olla ükskõik millist lihtandmetüüpi massive
+//Massiivi tekitamisel tuleb ära öelda kui pikk või suur see massiiv on
+//Massiiv saa olla koostatud ka teistes massiividest
+//
+// Esimene tekitusviis
+int[] arvuMassiiv = new int[3]; //andmetüüp int väjendab et tegu on 
+//täisarvutüüpi andmega ja kantsulud väljendavad et tegu ühtlasi ka
+//massiiviga. nimeks on "arvuMassiiv" ja võrdusmärgiga, on esimene
+//tekitusmoodus öelda et tegu on uue massiiviga kasutades kaitstud sõna
+//"new", ja sellele järgneb massiivi pikkuse sätestus "int[3]" see
+//tähendab et siin massiivis on 3 elementi, mis on täisarvud
+
+int[] arvuMassiiv2 = [1, 2, 3]; // teine masiivi tekitusviis, kus järjendi
+                               //pikkuse sätestamise asemel, pannakse
+                               //elemendid kohe sisse järjendi pikkus
+                               //tuletatakse elementide arvust
+
 //põhilised matemaatilised tehted
 int liitimine = 1 + 1; //liitmine, kaks arvu kokku
 int lahutamine = 1 - 1; // lahutad, esimese arvu teisest arvust maha
@@ -634,4 +654,26 @@ while (i < 5) //"While" on kaitstud sõna mis alustab while tsükli
     i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud
         //juhul liidetaks 1 juurde
 
+}
+
+// 3. for
+
+int kogus = 6; //muutuja mida tsükkel kasutab töötlemiseks mingisugusel kujul
+for (int k = 0; k < kogus; k++) //kaitstud sõna "for" alustab for tsüklit
+                                //, pärast mida on sulud,mlle vahel on
+                                //kõik tsükli töö jaoks vajalik info.
+                                //esimene parameeter tekitab tsükli töö
+                                //jaoks muutuja "int k = 0;", teine
+                                //parameeter on tingimuslause mis kontrollib
+                                //tingimuse täitumist "k < kogus;" ning
+                                //kolmasinkrementeerib tekitatud muutuja
+                                //"k++;". pane tähele et iga sulgude vahel
+                                //oleva osa järel on lauselõpumäek. Tsükli
+                                //tööd kontrolliv tingimuslause koosneb
+                                //kolmest reast, mitte ühest, nagu while
+                                //või do-while puhul. koodiplokk kus tehakse
+                                //mingi tegevus. antud juhul on tegevuseks
+                                //muutuja "k" arvu väljakuvamine
+{
+    Console.WriteLine(k);
 }
