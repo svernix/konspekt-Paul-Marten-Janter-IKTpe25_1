@@ -309,9 +309,14 @@ int[] arvuMassiiv = new int[3]; //andmetüüp int väjendab et tegu on
 //tähendab et siin massiivis on 3 elementi, mis on täisarvud
 
 int[] arvuMassiiv2 = [1, 2, 3]; // teine masiivi tekitusviis, kus järjendi
-                               //pikkuse sätestamise asemel, pannakse
-                               //elemendid kohe sisse järjendi pikkus
-                               //tuletatakse elementide arvust
+                                //pikkuse sätestamise asemel, pannakse
+                                //elemendid kohe sisse järjendi pikkus
+                                //tuletatakse elementide arvust
+                                // -- massiivi sisemised meetodid:
+int hasthismany = arvuMassiiv.Length; //massiivi meetod "Lenght" mille me
+                                     //saame kasutusele võtta punkti abil,
+                                     //loendab kokku, mitu elementi
+                                     //järjendis parasjagu on.
 
 //põhilised matemaatilised tehted
 int liitimine = 1 + 1; //liitmine, kaks arvu kokku
