@@ -496,7 +496,7 @@ double ostusumma = double.Parse(Console.ReadLine());
 if (ostusumma > 100)
 //teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
 //kontrolli, kas ostusumma on suurem kui 100
-
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 {
     Console.WriteLine("Saad 20% allahindliust!");
     // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
@@ -504,6 +504,9 @@ if (ostusumma > 100)
     //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma < 101 && ostusumma > 50)
+//teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
+//kontrolli, kas ostusumma on väiksem kui 101 ja suurem kui 50
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 {
     Console.WriteLine("Saad 10% allahindlust");
     // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
@@ -511,6 +514,9 @@ else if (ostusumma < 101 && ostusumma > 50)
     //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma < 51 && ostusumma > 20)
+//teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
+//kontrolli, kas ostusumma on väiksem kui 51 ja suurem kui 20
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 {
     Console.WriteLine("Saad 5% allahindlust");
     // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
@@ -518,6 +524,9 @@ else if (ostusumma < 51 && ostusumma > 20)
     //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma > 21)
+//teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
+//kontrolli, kas ostusumma on suurem kui 21
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 {
     Console.WriteLine("Allahindlust ei saa");
     // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
@@ -525,6 +534,9 @@ else if (ostusumma > 21)
     //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma < 1)
+//teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
+//kontrolli, kas ostusumma on väiksem kui 1
+// {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 {
     Console.WriteLine("Sisestatud vigane arv");
     // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
@@ -709,3 +721,79 @@ for (int k = 0; k < kogus; k++) //kaitstud sõna "for" alustab for tsüklit
 {
     Console.WriteLine(k);
 }
+
+
+
+double valik = 0:
+double pindala = 0;
+Console, Neteline("Tere, kas sinu tuba on kolmnurk, ristkülik vöi ring?");
+if (valik == 'kolmnurk')
+{
+Console.WriteLine("Sisesta A_külg");
+double a_külg = int.Parse(Console.ReadLine());
+Console.WriteLine("Sisesta B_külg");
+double b_külg = int.Parse(Console.ReadLine());
+Console MriteLine("Sisesta C_Külg");
+double c_külg = int.Parse(Console.ReadLine());
+pindala = a_külg + b_külg + c_külg;
+Console WriteLine($"Kolmnurga pindala on" + pindala + "ruutmeetrit");
+}
+else if (valik = 'ristkülik')
+{
+Console MriteLine("Sisesta ristküliku pikkus");
+double pikkus = int.Parse(Console.ReadLine());
+Console WriteLine("Sisesta ristküliku laius");
+double laius = int.Parse(Console.ReadLine());
+    pindala = pikkus * laius;
+Console.WriteLine($"risthitku pindala on" + pindala + "ruutmeetrit");
+}
+else if (valik = 'ring')
+{
+Console.WriteLine("Sisesta ringi raadius");
+double raadius = int.Parse(Console.ReadLine());
+pindala = Math.PI * raadius(2);
+Console.WriteLine($"risthitku pindala on" + pindala + "ruutmeetrit");
+}
+
+
+
+
+
+
+//Pindala kalkulaator
+
+string valik = "";
+double pindala = 0;
+
+Console.WriteLine("Tere, kas sa tahad ristküliku(1),kolmnurga(2) või ringi(3) pindala");
+Console.Write("Sisesta oma valik (1-3): ");
+string valik = Console.ReadLine();
+
+if (valik == "1")
+{
+    Console.Write("palun sisesta oma toa esimene külg");
+    double laius = double.Parse(Console.ReadLine());
+    Console.Write("palun sisesta oma toa teine külg");
+    double pikkus = double.Parse(Console.ReadLine());
+    pindala = laius * pikkus;
+    Console.WriteLine($"Ristküliku pindala on" + pindala + "ruutmeetrit");
+}
+else if (valik == "2")
+{
+    Console.Write("palun sisesta oma toa esimene külg");
+    double a_külg = double.Parse(Console.ReadLine());
+    Console.Write("Palun sisesta oma toa teine külg");
+    double b_külg = double.Parse(Console.ReadLine());
+    Console.WriteLine("Palun sisesta oma toa kolmas külg");
+    double c_külg = double.Parse(Console.ReadLine());
+    pindala = (a_külg + b_külg + c_külg) / 2;
+    Console.WriteLine($"Kolmnurga pindala on" + pindala + "ruutmeetrit");
+}
+else if (valik == "3")
+{
+    Console.Write("palun sisesta oma toa raadius");
+    double raadius = double.Parse(Console.ReadLine());
+    pindala = Math.PI * Math.Pow(raadius, 2);
+    Console.WriteLine($"Ringjoone pindala on" + pindala + "ruutmeetrit");
+}
+
