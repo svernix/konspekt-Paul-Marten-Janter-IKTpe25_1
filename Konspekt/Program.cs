@@ -480,32 +480,59 @@ Console.WriteLine($"Tehte tulemus: {tulemus}");
 //taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
 // {} -> koodiplokk, tavaliselt pärast tingimust või funktsiooni kirjeldust.
 
+
+
+
 Console.WriteLine("Sisesta ostusumma");
 // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
 //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
-//taga olevate sulhude vahel, antud rida lõppeb lauselõpumärgiga.
+//taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 
 double ostusumma = double.Parse(Console.ReadLine());
+// Tekitame muutuja "ostusumma", mille ette paneme andmetüübiks double, ehk
+// ütleme et seal on tekst, ning võrdusmärgi abil omistame talle
+// konsooli rea pealt loetu info, mis saame kasutades "Console" mooduli,
+// ReadLine() funktsiooni. Lause lõppeb lauselõpumärgiga ; .
 if (ostusumma > 100)
+//teeme tingimus lause if, ning sulgude vahel kirjutame tingimuseks
+//kontrolli, kas ostusumma on suurem kui 100
+
 {
     Console.WriteLine("Saad 20% allahindliust!");
+    // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+    //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+    //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma < 101 && ostusumma > 50)
 {
     Console.WriteLine("Saad 10% allahindlust");
+    // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+    //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+    //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma < 51 && ostusumma > 20)
 {
     Console.WriteLine("Saad 5% allahindlust");
+    // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+    //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+    //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma > 21)
 {
     Console.WriteLine("Allahindlust ei saa");
+    // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+    //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+    //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
 else if (ostusumma < 1)
 {
     Console.WriteLine("Sisestatud vigane arv");
+    // Adresseerimine modulit "Console", punkti abil ütleme et kasutame 
+    //funktsiooni WriteLine, et kasutajale öelda sõnum mis asub funktsiooni 
+    //taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
 }
+
+
 
 //string kasutajanimi = "";
 //do
