@@ -318,6 +318,41 @@ int hasthismany = arvuMassiiv.Length; //massiivi meetod "Lenght" mille me
                                      //loendab kokku, mitu elementi
                                      //järjendis parasjagu on.
 
+// 2. loend:
+//List <T> -> Loend on komposiitandmetüüp, mille sees saab olla mitmeid samat tüüpi liht-ja komposiitandmed.
+//Loed-tüüpi andmeid tähistatakse
+//Täiendava andmetüübikirjeldusega "List" mille järel noolsulgudesse asetatakse mis tüüpi andmed loendis on.
+//Loendi tekitamisel, erinevalt massiivist, ei pea ütlema kui pikk loend on. Loendisse saab dünamiliselt
+//elemente juurde juurde lisada, ehk tema pikkus ei ole fikseeritud.
+//Sarnaselt massiiviga, saab loend omada endas, teisi loendeid.
+   //Esimene teikitusviis:
+List<int> arvutNimekiri = new List<int>(); //Amdmetüübi kirjeldus "List<>" näitab et tegu on loendiga, List
+//noolsulgude vahel on loendis olevate andmete andmetüüp. muutuja nimeks on "arvutiNimekiri". Omistame sellesse
+//muutujasse kaitstud sõna "new" abil uue tühjatäisarvuloendi sätestusega "List<int>()".
+   //Teine tekikitusviis:
+List<int> arvuNimekiri2 = new List<int>() {1,2,3}; //teine loendi tekitusviis, muutuja instantsieerimine
+                                                   //võrdusmärgi ees on sama nagu esimesel, juurde tuleb ainult võrdusmärgi taga olevale sätestusele loogelised
+                                                   //sulud kiis juva sinna asetatud elementidega. Enam ei ole tegu tühja nimekirjaga, vaid loendiga kus on kolm 
+                                                   //elementi
+   //Kolmas tekikitusviis:
+List<int> arvuNimekiri3 = new List<int>(3); // kolmas loendi tekitusviis kus muutuja instantseerimine jääb
+//samaks, aga, tavaliste sulgude vahel, sarnaselt massiiviga, saame anda loendile esialgse suuruse. Loend
+//ise ei oma veel andmeid, aga loendis on kolm tühja elementi. Nimelt, on sätestusel, peale andmetüüpi
+//kirjeldavaid noolsulge, paar tavalise sulge, mille sisse saab parameetrina panna loendi pikkus. ()
+
+// -- Loendi sisemised meetotid
+arvuNimekiri3.Add(67); // Loendi meetod "Add()" lisab enne punkti olevale järjendile uue elemendi, element mida
+//lisada on Add meetodi sulgude vahel. Elemnti saab lisada otse (amtud juhul "67") või muutujana - näiteks
+//...Add(arv)
+int loendiPikkus = arvuNimekiri3.Count(); //loendi meetod "Count()" loeb kokku mitu elementi järjendis on,
+//meetod tagastab täisarvu mis vastab elementide kogusele.
+bool KasSeeArvOn = arvuNimekiri3.Contains(3); // Loendi meetod "Contains()" otsib kogu järjendi seest elementi,
+//mis vastab sulgude vahel olevate parameetrile, tagastab kas true või false - on leitud või ei ole. Tegemist
+//on põhimõtteliselt foreach tsükliga, mis otsib kindlat parameetrit, töödeldest läbi, loendi
+arvuNimekiri3.Remove(4); //Loendi meetod "Reomve()" eemaldab enne punkti olevast loendis, kindlal asukohal
+//oleval elemendi. Sulgude vahel on parameetriks eemaldatav elemndi asukohajärjekorranumber.
+
+
 //põhilised matemaatilised tehted
 int liitimine = 1 + 1; //liitmine, kaks arvu kokku
 int lahutamine = 1 - 1; // lahutad, esimese arvu teisest arvust maha
@@ -677,10 +712,11 @@ arv--;      //-- -> onspetsiifiliselt phe maha lahutamiseks lühivariant.
 
 /* Tsüklid */
 // 1. do-while
+int dw = 0;
 do // "do" on kaitsutud sõna, mis alustab do-while tsüklit pärast mida on
 { //koodiplokk, ning ütleb et tee seda koodi
-
-} while (true); //niikaua kuni while järel olevate silgude vahel olev tingimus
+    dw++;
+} while (dw != 5); //niikaua kuni while järel olevate silgude vahel olev tingimus
                 //on täidetud
                 // 2. While
 
@@ -720,4 +756,18 @@ for (int k = 0; k < kogus; k++) //kaitstud sõna "for" alustab for tsüklit
                                 //muutuja "k" arvu väljakuvamine
 {
     Console.WriteLine(k);
+}
+
+// 4 foreach
+int[] arvuloend = { 3, 89, 123412, 7, 67 }; //massiiv mida foreach tsükkel kastuab, või töötleb mingil kujul.
+foreach (var arvInloend in arvuloend) //kaitstud sõna foreach alustab foreach tsükli. Pärast mida on suletud,
+                                      //mitte vahel tekitatakse ajutine muutuja andmetüübiga "var" tööeldav
+                                      //andmekogumi üksikelemendi kohta, ning var "arvInloend" muutuja hoiab
+                                      //endas just peale sõna "in" oleva andmekogumi elemente jätkub ehk tsükli
+                                      //töö  käib iga üksiku elemendi kohta andmekogumis. Tsüklil ei ole vaja
+                                      //tsüklimuutujat, kuna talle on sisse ehitatud vaikimisi elemendi
+                                      //järjestuse jälgimine. Niipalju kui andmeid on , ongi see , mittu korda
+                                      //tsükkel käivitatakse.
+{                                     // {} koodiplokk kus tehtakse mingi tegevus 
+    Console.WriteLine(arvInloend);    // antud juhul huvatakse välja ajutine mutuja, mille sees on loendi element.
 }
