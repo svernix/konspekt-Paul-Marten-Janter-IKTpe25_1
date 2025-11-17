@@ -292,6 +292,8 @@ string s = "tekst"; // iniloetaval kujul tekst
 var x = "abc"; //ebamäärase tüübiga kohalik muutuja
 var y = 123;
 const int z = 3; //konstant-tüüpi muutujaid ei saa muuta, need on read-only
+//void - void on andmetüüp, mida muutujatele anda ei saa. void on andmetüüp, mida kasutatakse meetodite jms
+//signatuurides, et näidata tagastav andmetüübi puudumist. Tegemist on - sõna ostsese mõttes - mitte millegagi
 
 //võimalikud komposiitandmetüübid
 // [] -> Massiv on komosiitandmetüüp, mille sees saab olla mitu samat
@@ -770,4 +772,54 @@ foreach (var arvInloend in arvuloend) //kaitstud sõna foreach alustab foreach t
                                       //tsükkel käivitatakse.
 {                                     // {} koodiplokk kus tehtakse mingi tegevus 
     Console.WriteLine(arvInloend);    // antud juhul huvatakse välja ajutine mutuja, mille sees on loendi element.
+}
+
+/* meetodid */
+
+//Meetodid on välja kutsutavad koodijupid. Meetodi teostavad tavaliselt mingeid funktsioone või tegevusi.
+//Meetodid lasevad programmeerijal taaskasutada oma eelnevat kirjutatud koodi - write once use many times
+//Meetodeid on kahte liiki - ühed, mis tagastavad andmeid mingisugune töö tulemina, ja teised, mis ei tagasta
+//midagi, kuid omavad siiski mingit tegevust
+
+//Meetodi signatuur:
+//Meetodi signatuur koosneb mitmest kindlalt äramääratud omaduses, nendeks on:
+//Juurdepääsu modifikaator mis ütleb ära, kus ja kuidas sellele meetodile juurde pääseda saab
+//Public - meetod on avalik ja kättesaadav ka teistes klassides peale selle, kus meetod ise asub
+//Private - meetod on saadaval ainult selles klassis kus meetod ise asub
+//Protected - meetod on saadaval ainult selles klassis, kus meetod ise asub ja kõikides  klassides millel on 
+//päritlus sellele klassile
+//Internal - meetod on saadaval ainult selles klassis ja ainult selles failis
+// - võib olla ka pandud static - meetod kuulub selle klassi juurde
+// - tagastustüüp on modifikaator mis ütleb ära, mis tüüpi andmeid meetod tagasi annab kutsumise asukohta.
+//Andmetüüo mida tagastada võib olla ükskõik milline liht või kombinikatsioonitüüp, aga kui meetod ei tagasta
+//üldse andmeid, pannakse selle asemel andmetüüpiks "void". Kui meetodil on tagastustüüp mis on midagi muud kui
+//void, on meetodi sees, iga toimiva koodisõna lõpus, kaitstud sõna "return", return ütleb et just see on vaja
+//väljakutseasukohta tagastada, ning peale returni on muutuja nimi tagastatava infoga. Peale return lauset ei
+//teosta mitte ühtegi muud meetodi sisu. Return toiming ka kui breakina, lõpetades siis aktiivse meetodi töö
+
+
+public static void UusMeetod() //meetodi signatuur, mis omab juurdepääsuufukaatorit "public", "static" ütleb
+                              //et ta on selle klassi oma, tagastustüüp "void" ütleb et andmeid meie meetod ei
+                              //tagasta ning pärast meetodi omadusi on meetodi nimi "UusMeetod" peale mida on
+                              //sulud, kus parameetrid ei ole.
+                              //pärast signatuur on koodiplokk meetodi koodiga {}
+                              //Antud juhul meetod kuva konsooli sõnumi.
+{
+    Console.WriteLine("Tere");
+}
+//2. tüüpi meetod - tagastab väärtuse
+int[] arvutataavadArvud = new int[](3, 67, 420);
+public static int ArvutaKokku(int[] arvud) //Meetod mille signatuuris on juurdepääsumodifikaator public static
+                                           //ütleb et meetod kuuluv siia klassi, tagastustüüp "int" ütleb et
+                                           //programmis väljakutseasukohta tagastatakse täisarv, peale seda on
+                                           //meetodi nimi "ArvutaKokku" ning sulgude vahel ootab meetod
+                                           //täisarvumassivi millele pannakse meetodi sees ajutine nimi arvud.
+                                           //Peale signatuuri on koodiplokk {} tehtava koodiga.
+{
+    int summa = 0; //Tekkitatakse täisarvuandmetüüpi muutuja nimega "summa", kuhu esialgu omistatakse arv 8.
+    foreach (int i in arvud) //Foreach tsükliga käiakse kõik täisarvumassiivi "arvud" arvud läbi
+    {
+        summa += i; //ja muutujale summa lisatakse juurde, hetkel käidav element
+    }
+    return summa; //pärast tsükli töö lõppu tagastatakse "return" käsu abil, muutuja summa sisu
 }
