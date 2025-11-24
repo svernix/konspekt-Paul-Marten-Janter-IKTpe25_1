@@ -774,6 +774,15 @@ foreach (var arvInloend in arvuloend) //kaitstud sõna foreach alustab foreach t
     Console.WriteLine(arvInloend);    // antud juhul huvatakse välja ajutine mutuja, mille sees on loendi element.
 }
 
+/* Castimine */
+
+//Castimine on viis, kuidas ühest andmetüübist teist saada. Castimist on kahte eri liiki, automaatne ja
+//manuaalne. Automaatne castimine toimub siis, kui teisendatakse väiksemast andmetüübist, suuremasse.
+//Manuaalne castimine toimub siis, kui tahetatakse saada suuremast andmetüübist väiksemat.
+//Castitakse nii, et teisendatava muutuja ette, pannakse sulud kos soovitud andmetüübiga.
+
+double newData1 = 2.22d;
+
 /* meetodid */
 
 //Meetodid on välja kutsutavad koodijupid. Meetodi teostavad tavaliselt mingeid funktsioone või tegevusi.
@@ -823,3 +832,4 @@ public static int ArvutaKokku(int[] arvud) //Meetod mille signatuuris on juurdep
     }
     return summa; //pärast tsükli töö lõppu tagastatakse "return" käsu abil, muutuja summa sisu
 }
+
