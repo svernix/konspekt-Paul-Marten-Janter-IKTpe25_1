@@ -363,6 +363,18 @@ int jagamine = 1 / 1; // jagamine, jagad essa arvu teisega
 double astendamine = Math.Pow(2, 2); // astendamine, esimene arv astendakse teisega
 double juurimine = Math.Sqrt(2); //ruutjuur, parameetriks arv mida juuritakse
 
+/* Matemaatilised tehted moodulist math */
+
+Math.Round(d); //Moodulist "Math" kutsutakse punkt aabil esile meetod "Round". Sulgude vahel on ümardatav arv.
+//Round ümardab sulgude vahel olevas muutujas asetseva arvu, vastavalt komakohtade parameetrile.
+//Vaikeväärtusena lähima täisarvuni. 0-4 on allpool, 5-9 on ülespoole.
+double newpi = Math.PI; //Moodulist "Math" kutsutakse punkti abil esile kaitstud väärtus, PI mis väljendab
+                        //matemaatilist pi-d ning saab kasutada kui tavalist arv.
+double astendus = Math.Pow(2, 2); //Moodulist "Math" kutsutakse punkti abil esile meetod "Pow" (power).
+                                  //Sulgude vahel on kaks parameetrit, esime on neist Astendatav ja teine
+                                  //astendaja. antud juhul oleks vastuseks 16.
+
+
 int arv = 0; //sobib
 string sõna = "abc";
 string sisend_string = "abc";
@@ -781,7 +793,11 @@ foreach (var arvInloend in arvuloend) //kaitstud sõna foreach alustab foreach t
 //Manuaalne castimine toimub siis, kui tahetatakse saada suuremast andmetüübist väiksemat.
 //Castitakse nii, et teisendatava muutuja ette, pannakse sulud kos soovitud andmetüübiga.
 
-double newData1 = 2.22d;
+double newData1 = 2.22d; //tekitame, või on olemas, suure mahuga andmed muutjas newData1. Tegu on double andmega
+float data1Float = (float)newData1; // "(float)" teisendab double tüüpi andmed float tüüpi andmeteks.
+long data1Long = (long)newData1; //"(long)" teisendab double tüüpi andmed long tüüpi andmeks
+int data1Int = (int)newData1; //"(int)" teisendab double tüüpi andmed int tüüpi andmeks
+char data1Char = (char)newData1; //"(char)" teisendab double tüüpi andmed char tüüpi andmeks
 
 /* meetodid */
 
