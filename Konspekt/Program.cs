@@ -781,7 +781,8 @@ foreach (var arvInloend in arvuloend) //kaitstud sõna foreach alustab foreach t
                                       //töö  käib iga üksiku elemendi kohta andmekogumis. Tsüklil ei ole vaja
                                       //tsüklimuutujat, kuna talle on sisse ehitatud vaikimisi elemendi
                                       //järjestuse jälgimine. Niipalju kui andmeid on , ongi see , mittu korda
-                                      //tsükkel käivitatakse.
+                    
+    //tsükkel käivitatakse.
 {                                     // {} koodiplokk kus tehtakse mingi tegevus 
     Console.WriteLine(arvInloend);    // antud juhul huvatakse välja ajutine mutuja, mille sees on loendi element.
 }
